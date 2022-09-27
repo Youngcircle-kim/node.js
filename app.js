@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', 'views')
+
 import adminData from './routes/admin.js';
 
 import shopRoutes from './routes/shop.js';
@@ -13,7 +16,7 @@ const __dirname = path.resolve();
 app.use(bodyParser.urlencoded());
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminData.router);
 app.use('/admin', shopRoutes);
 
 app.use((req, res, next)=>{

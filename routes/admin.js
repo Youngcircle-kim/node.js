@@ -8,7 +8,7 @@ const __dirname = path.resolve();
 const products = [];
 
 router.get("/add-product", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "views", "add-product.html"));
+  res.sendFile(path.join(__dirname, ".", "views", "add-product.html"));
 });
 
 router.post("/add-product", (req, res, next) => {
@@ -16,5 +16,7 @@ router.post("/add-product", (req, res, next) => {
   res.redirect("/");
 });
 
-exports.routes = router;
-exports.products = products;
+export default {
+  router, 
+  products    
+};

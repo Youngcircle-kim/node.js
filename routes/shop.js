@@ -7,8 +7,7 @@ import adminData from './admin.js';
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-    console.log('shop.js',adminData.product);
-    res.sendFile(path.join(__dirname, ".", "views", "shop.html"));
+    res.render('shop');
 });
 
-export default router;
+export default router; 
