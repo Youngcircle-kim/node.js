@@ -1,14 +1,15 @@
 import path from "path";
 import express from "express";
 import bodyParser from 'body-parser';
+import expressHbs from 'express-handlebars';
 
 const app = express();
 
-app.set('view engine', 'pug');
-app.set('views', 'views')
+app.engine('handlebars', expressHbs.engine({layoutsDir: 'view/layouts', defaultLayout:'main-layout'}));
+app.set('view engine', 'handlebars');
+app.set('views', 'views');
 
 import adminData from './routes/admin.js';
-
 import shopRoutes from './routes/shop.js';
 
 const __dirname = path.resolve();
